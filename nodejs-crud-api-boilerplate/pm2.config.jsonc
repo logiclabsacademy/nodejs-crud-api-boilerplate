@@ -1,0 +1,22 @@
+{
+    "apps": [
+      {
+        "name": "my-app",
+        "script": "dist/index.js", // Assuming  main entry file after transpiling
+        "watch": false, // Set to true if you want PM2 to watch for file changes and restart the app
+        "ignore_watch": ["node_modules", "logs", "public"], // Directories or files to ignore when watching for changes
+        "instances": "max", // Number of instances to run; "max" uses maximum available CPU cores
+        "exec_mode": "cluster", // Execution mode; "cluster" mode enables load balancing
+        "merge_logs": true, // Merge logs from all instances into one file
+        "env": {
+          "NODE_ENV": "production", // Environment variables for  application
+          "PORT": 3000 //  Define  application's port
+        },
+        "log_date_format": "YYYY-MM-DD HH:mm Z", // Date format for PM2 logs
+        "error_file": "logs/pm2-error.log", // Path to error log file
+        "out_file": "logs/pm2-out.log", // Path to output log file
+        "pid_file": "pm2.pid" // Path to PID file
+      }
+    ]
+  }
+  
